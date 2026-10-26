@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortuLua IDE - Walney Moreira Klein</title>
+  <!-- Importando o CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="topbar">
+    <h1>🌙 PortuLua IDE <span>por Walney Moreira Klein (walneyk@hotmail.com)</span></h1>
+    <a href="manual_portulua.html" class="btn btn-sec" target="_blank" style="text-decoration:none;">📘 Manual</a>
+    <button class="btn btn-sec" id="btn-new">📄 Novo Exemplo</button>
+    <button class="btn btn-sec" id="btn-open">📂 Importar .wmk</button>
+    <button class="btn btn-sec" id="btn-save">💾 Exportar .wmk</button>
+    <button class="btn btn-run" id="btn-run">▶ Executar</button>
+    <input type="file" id="file-input" accept=".wmk,.txt" style="display: none;">
+  </div>
+
+  <div id="main">
+    <div id="sidebar">
+      <h2>Exemplos Prontos</h2>
+      <div id="examples-list"></div>
+    </div>
+
+    <div id="editor-wrapper">
+      <div id="tabs-bar">
+        <button id="btn-add-tab" title="Nova Aba">+</button>
+      </div>
+      <div id="editor-container"></div>
+      
+      <div id="terminal-panel">
+        <div id="terminal-header">
+          <span>Terminal de Saída</span>
+          <span id="status">Pronto</span>
+        </div>
+        <div id="terminal-output">Bem-vindo ao PortuLua IDE!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Importando o JavaScript -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

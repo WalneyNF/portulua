@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #1e1e1e; color: #d4d4d4; height: 100vh; display: flex; flex-direction: column; }
+
+/* Topbar */
+#topbar { height: 50px; background: #252526; display: flex; align-items: center; padding: 0 15px; border-bottom: 1px solid #333; gap: 15px; }
+#topbar h1 { font-size: 16px; margin: 0; color: #569cd6; flex: 1; }
+#topbar h1 span { font-size: 12px; color: #888; font-weight: normal; margin-left: 10px; }
+.btn { padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.btn-run { background: #28a745; color: white; }
+.btn-run:hover { background: #218838; }
+.btn-sec { background: #333; color: #ccc; }
+.btn-sec:hover { background: #444; }
+
+/* Layout Principal */
+#main { display: flex; flex: 1; overflow: hidden; }
+
+/* Sidebar */
+#sidebar { width: 250px; background: #252526; border-right: 1px solid #333; display: flex; flex-direction: column; overflow-y: auto; }
+#sidebar h2 { font-size: 12px; text-transform: uppercase; color: #888; padding: 15px 15px 5px 15px; margin: 0; }
+.example-item { padding: 10px 15px; cursor: pointer; font-size: 13px; border-left: 3px solid transparent; color: #ccc; }
+.example-item:hover { background: #2a2d2e; color: #fff; }
+.example-item.active { background: #37373d; border-left-color: #569cd6; color: #fff; }
+
+/* Editor Area */
+#editor-wrapper { flex: 1; display: flex; flex-direction: column; }
+#tabs-bar { display: flex; background: #2d2d2d; overflow-x: auto; border-bottom: 1px solid #333; }
+.tab { padding: 8px 15px; cursor: pointer; font-size: 13px; border-right: 1px solid #333; display: flex; align-items: center; gap: 10px; color: #888; }
+.tab:hover { background: #333; color: #ccc; }
+.tab.active { background: #1e1e1e; color: #569cd6; border-top: 2px solid #569cd6; }
+.tab-close { color: #666; font-weight: bold; font-size: 16px; line-height: 1; cursor: pointer; }
+.tab-close:hover { color: #f48771; }
+#btn-add-tab { padding: 8px 15px; background: transparent; border: none; color: #888; cursor: pointer; font-size: 18px; font-weight: bold; }
+#btn-add-tab:hover { color: #fff; }
+#editor-container { flex: 1; width: 100%; }
+
+/* Terminal */
+#terminal-panel { height: 200px; background: #000; border-top: 1px solid #333; display: flex; flex-direction: column; }
+#terminal-header { background: #1e1e1e; padding: 5px 15px; font-size: 12px; color: #888; display: flex; justify-content: space-between; border-bottom: 1px solid #333; }
+#terminal-output { flex: 1; padding: 10px 15px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 14px; color: #0f0; white-space: pre-wrap; line-height: 1.5; }

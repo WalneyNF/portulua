@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Referência - PortuLua</title>
+<style>
+  :root {
+    --bg: #1e1e1e;
+    --bg-panel: #252526;
+    --text: #d4d4d4;
+    --accent: #569cd6;
+    --accent-green: #6a9955;
+    --accent-orange: #d18616;
+    --code-bg: #2d2d2d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; display: flex; }
+  
+  /* Menu Lateral */
+  #sidebar { width: 280px; height: 100vh; background: var(--bg-panel); border-right: 1px solid #333; position: sticky; top: 0; overflow-y: auto; padding: 20px 0; }
+  #sidebar h2 { font-size: 14px; color: #888; text-transform: uppercase; margin: 20px 20px 10px 20px; }
+  #sidebar a { display: block; padding: 8px 20px; color: #ccc; text-decoration: none; font-size: 14px; border-left: 3px solid transparent; }
+  #sidebar a:hover { background: #2a2d2e; color: #fff; border-left-color: var(--accent); }
+  
+  /* Conteúdo Principal */
+  #content { flex: 1; max-width: 900px; padding: 40px 60px; margin: 0 auto; }
+  
+  h1 { color: var(--accent); font-size: 36px; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 10px; }
+  .subtitle { color: #888; margin-bottom: 40px; font-size: 16px; }
+  h2 { color: var(--accent-orange); font-size: 24px; margin-top: 50px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+  h3 { color: var(--accent-green); font-size: 18px; margin-top: 30px; }
+  p { margin-bottom: 15px; font-size: 15px; }
+  
+  /* Tabelas */
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid #333; }
+  th { background: var(--bg-panel); color: var(--accent); }
+  td code { color: #ce9178; }
+
+  /* Blocos de Código */
+  code { background: var(--code-bg); color: #ce9178; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 14px; }
+  pre { background: #000; border: 1px solid #333; padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+  pre code { background: none; color: #9cdcfe; padding: 0; display: block; font-size: 14px; }
+  .kw { color: #569cd6; font-weight: bold; }
+  .str { color: #ce9178; }
+  .num { color: #b5cea8; }
+  .com { color: #6a9955; font-style: italic; }
+
+  /* Caixas de Nota */
+  .note { background: rgba(86, 156, 214, 0.1); border-left: 4px solid var(--accent); padding: 15px; border-radius: 0 6px 6px 0; margin: 20px 0; }
+  .warning { background: rgba(209, 134, 22, 0.1); border-left: 4px solid var(--accent-orange); padding: 15px; border-radius: 0 6px 6px 0; margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<!-- Menu Lateral de Navegação -->
+<div id="sidebar">
+  <div style="padding: 0 20px 20px 20px; color: #569cd6; font-weight: bold; font-size: 20px;">🌙 PortuLua</div>
+  <h2>Guia da Linguagem</h2>
+  <a href="#intro">Introdução</a>
+  <a href="#estrutura">Estrutura Básica</a>
+  <a href="#variaveis">Variáveis e Tipos</a>
+  <a href="#operadores">Operadores</a>
+  <a href="#controle">Estruturas de Controle</a>
+  <a href="#funcoes">Funções Personalizadas</a>
+  <a href="#vetores">Vetores</a>
+  <h2>Bibliotecas Nativas</h2>
+  <a href="#matematica">Funções Matemáticas</a>
+  <a href="#texto">Funções de Texto</a>
+  <a href="#sistema">Sistema e Utilidades</a>
+  <a href="#api">Integração com APIs</a>
+  <h2>Referência Rápida</h2>
+  <a href="#palavras">Palavras-Chave</a>
+</div>
+
+<!-- Conteúdo do Manual -->
+<div id="content">
+  <h1>Manual de Referência do PortuLua</h1>
+  <div class="subtitle">Uma linguagem de programação criada por <strong>Walney Moreira Klein</strong> (walneyk@hotmail.com).</div>
+
+  <h2 id="intro">Introdução</h2>
+  <p>O <strong>PortuLua</strong> é uma linguagem de programação didática baseada no Portugol (VisuAlg), mas com superpoderes modernos. Ela foi projetada para rodar diretamente no navegador, permitindo que você aprenda lógica de programação, crie algoritmos complexos e até faça integrações com a internet.</p>
+  <p>Todo programa no PortuLua deve ser salvo com a extensão de arquivo <code>.wmk</code>.</p>
+
+  <h2 id="estrutura">Estrutura Básica</h2>
+  <p>Todo programa deve começar com a palavra <code>algoritmo</code> seguida de um nome, e terminar com <code>fimalgoritmo</code>. Os comandos ficam dentro do bloco <code>inicio</code> e <code>fimalgoritmo</code>.</p>
+  <pre><code><span class="kw">algoritmo</span> "MeuPrimeiroPrograma"
+<span class="kw">inicio</span>
+   <span class="com">// Seus comandos vão aqui</span>
+   <span class="kw">escreval</span>(<span class="str">"Olá, Mundo!"</span>)
+<span class="kw">fimalgoritmo</span></code></pre>
+
+  <h2 id="variaveis">Variáveis e Tipos</h2>
+  <p>As variáveis devem ser declaradas antes do bloco <code>inicio</code>, usando a palavra <code>var</code>. O PortuLua possui quatro tipos básicos:</p>
+  <table>
+    <tr><th>Tipo</th><th>Descrição</th><th>Exemplo</th></tr>
+    <tr><td><code>inteiro</code></td><td>Números inteiros</td><td><code>idade: inteiro</code></td></tr>
+    <tr><td><code>real</code></td><td>Números decimais</td><td><code>altura: real</code></td></tr>
+    <tr><td><code>caractere</code></td><td>Textos e letras</td><td><code>nome: caractere</code></td></tr>
+    <tr><td><code>logico</code></td><td>Verdadeiro ou Falso</td><td><code>aprovado: logico</code></td></tr>
+  </table>
+  <p>Para ler um valor do usuário, use <code>leia()</code>. Para exibir na tela, use <code>escreva()</code> (sem pular linha) ou <code>escreval()</code> (pulando linha).</p>
+  <pre><code><span class="kw">var</span>
+   nome: caractere
+   idade: inteiro
+<span class="kw">inicio</span>
+   <span class="kw">escreval</span>(<span class="str">"Qual seu nome?"</span>)
+   <span class="kw">leia</span>(nome)
+   <span class="kw">escreval</span>(<span class="str">"Bem-vindo, "</span>, nome)</code></pre>
+
+  <h2 id="operadores">Operadores</h2>
+  <ul>
+    <li><strong>Aritméticos:</strong> <code>+</code> (soma), <code>-</code> (subtração), <code>*</code> (multiplicação), <code>/</code> (divisão).</li>
+    <li><strong>Relacionais:</strong> <code>=</code> (igual), <code><></code> (diferente), <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>.</li>
+    <li><strong>Lógicos:</strong> <code>e</code>, <code>ou</code>, <code>nao</code>.</li>
+  </ul>
+  <p>A atribuição de valores a variáveis é feita com o operador <code><-</code>.</p>
+  <pre><code>idade <- 18
+media <- (nota1 + nota2) / 2
+se idade >= 18 <span class="kw">e</span> aprovado = verdadeiro <span class="kw">entao</span> ...</code></pre>
+
+  <h2 id="controle">Estruturas de Controle</h2>
+  
+  <h3>Condicionais (Se / Escolha)</h3>
+  <pre><code><span class="kw">se</span> idade >= 18 <span class="kw">entao</span>
+   <span class="kw">escreval</span>(<span class="str">"Maior de idade"</span>)
+<span class="kw">senao</span>
+   <span class="kw">escreval</span>(<span class="str">"Menor de idade"</span>)
+<span class="kw">fimse</span>
+
+<span class="kw">escolha</span> opcao
+   <span class="kw">caso</span> 1
+      <span class="kw">escreval</span>(<span class="str">"Opção 1"</span>)
+   <span class="kw">outrocaso</span>
+      <span class="kw">escreval</span>(<span class="str">"Outra opção"</span>)
+<span class="kw">fimescolha</span></code></pre>
+
+  <h3>Laços de Repetição (Loops)</h3>
+  <p>O PortuLua tem os três laços clássicos:</p>
+  <pre><code><span class="com">// Para (For)</span>
+<span class="kw">para</span> i <span class="kw">de</span> 1 <span class="kw">ate</span> 10 <span class="kw">faca</span>
+   <span class="kw">escreval</span>(i)
+<span class="kw">fimpara</span>
+
+<span class="com">// Enquanto (While)</span>
+<span class="kw">enquanto</span> i > 0 <span class="kw">faca</span>
+   i <- i - 1
+<span class="kw">fimenquanto</span>
+
+<span class="com">// Repita (Do-While)</span>
+<span class="kw">repita</span>
+   <span class="kw">escreval</span>(<span class="str">"Digite 0 para sair"</span>)
+   <span class="kw">leia</span>(x)
+<span class="kw">ate</span> x = 0</code></pre>
+
+  <h2 id="funcoes">Funções Personalizadas</h2>
+  <p>Você pode criar blocos de código reutilizáveis que recebem parâmetros e retornam um valor. Elas devem ser declaradas após o <code>fimalgoritmo</code> do programa principal.</p>
+  <pre><code><span class="kw">funcao</span> calcularDobro(x: inteiro): inteiro
+<span class="kw">inicio</span>
+   <span class="kw">retorne</span> x * 2
+<span class="kw">fimfuncao</span></code></pre>
+
+  <h2 id="vetores">Vetores (Arrays)</h2>
+  <p>Vetores permitem armazenar múltiplos valores em uma única variável. A indexação no PortuLua começa no número que você definir (ex: 1).</p>
+  <pre><code><span class="kw">var</span>
+   notas: vetor[1..4] de real
+<span class="kw">inicio</span>
+   notas[1] <- 10.0
+   notas[2] <- 8.5
+   <span class="kw">escreval</span>(notas[1])</code></pre>
+
+  <h2 id="matematica">Funções Matemáticas Nativas</h2>
+  <table>
+    <tr><th>Função</th><th>Descrição</th></tr>
+    <tr><td><code>abs(x)</code></td><td>Valor absoluto</td></tr>
+    <tr><td><code>raizq(x)</code></td><td>Raiz quadrada</td></tr>
+    <tr><td><code>potencia(x, y)</code></td><td>X elevado a Y</td></tr>
+    <tr><td><code>quad(x)</code></td><td>Quadrado de X</td></tr>
+    <tr><td><code>arredonda(x)</code></td><td>Arredonda para o inteiro mais próximo</td></tr>
+    <tr><td><code>trunca(x)</code></td><td>Corta as casas decimais</td></tr>
+    <tr><td><code>aleatorio(min, max)</code></td><td>Gera um número inteiro aleatório entre Min e Max</td></tr>
+  </table>
+
+  <h2 id="texto">Funções de Texto Nativas</h2>
+  <table>
+    <tr><th>Função</th><th>Descrição</th></tr>
+    <tr><td><code>compr(texto)</code></td><td>Retorna o tamanho do texto</td></tr>
+    <tr><td><code>maiuscula(texto)</code></td><td>Converte para MAIÚSCULAS</td></tr>
+    <tr><td><code>minuscula(texto)</code></td><td>Converte para minúsculas</td></tr>
+    <tr><td><code>copia(texto, inicio, fim)</code></td><td>Copia um pedaço do texto</td></tr>
+  </table>
+
+  <h2 id="sistema">Sistema e Utilidades</h2>
+  <table>
+    <tr><th>Função</th><th>Descrição</th></tr>
+    <tr><td><code>limpatela()</code></td><td>Limpa o terminal de saída</td></tr>
+    <tr><td><code>espera(milissegundos)</code></td><td>Pausa a execução (ex: <code>espera(2000)</code> para 2 segundos)</td></tr>
+  </table>
+
+  <h2 id="api">Integração com APIs (A Mágica!)</h2>
+  <p>O PortuLua possui comandos exclusivos para conversar com a internet e ler JSON. Esses comandos tornam a linguagem capaz de criar automações reais.</p>
+  
+  <h3><code>requisicao(url)</code></h3>
+  <p>Faz uma requisição HTTP GET para a URL informada e baixa os dados (JSON).</p>
+  
+  <h3><code>pega_json("chave")</code></h3>
+  <p>Retorna o valor de uma chave do último JSON baixado pela função <code>requisicao()</code>.</p>
+
+  <div class="warning">
+    <strong>⚠️ Aviso sobre CORS:</strong> Para que as APIs funcionem sem bloqueio de segurança, o arquivo da IDE deve estar rodando em um servidor local (como VS Code Live Server) ou na web (GitHub Pages), não direto no disco (file:///).
+  </div>
+
+  <p><strong>Exemplo: Consulta de CEP</strong></p>
+  <pre><code><span class="kw">algoritmo</span> "BuscaCEP"
+<span class="kw">var</span>
+   url, logradouro: caractere
+<span class="kw">inicio</span>
+   url <- <span class="str">"https://viacep.com.br/ws/01001000/json/"</span>
+   <span class="kw">requisicao</span>(url)
+   logradouro <- <span class="kw">pega_json</span>(<span class="str">"logradouro"</span>)
+   <span class="kw">escreval</span>(<span class="str">"Rua: "</span>, logradouro)
+<span class="kw">fimalgoritmo</span></code></pre>
+
+  <h2 id="palavras">Referência Rápida: Palavras-Chave</h2>
+  <p>Todas estas palavras são reservadas pelo PortuLua e não podem ser usadas como nomes de variáveis:</p>
+  <p>
+    <code>algoritmo</code> <code>inicio</code> <code>fimalgoritmo</code> <code>var</code> 
+    <code>inteiro</code> <code>real</code> <code>caractere</code> <code>logico</code> 
+    <code>leia</code> <code>escreva</code> <code>escreval</code> 
+    <code>se</code> <code>entao</code> <code>senao</code> <code>fimse</code> 
+    <code>escolha</code> <code>caso</code> <code>outrocaso</code> <code>fimescolha</code> 
+    <code>enquanto</code> <code>faca</code> <code>fimenquanto</code> 
+    <code>para</code> <code>de</code> <code>ate</code> <code>passo</code> <code>fimpara</code> 
+    <code>repita</code> <code>ate</code> 
+    <code>funcao</code> <code>fimfuncao</code> <code>retorne</code> 
+    <code>vetor</code> <code>matriz</code> 
+    <code>requisicao</code> <code>pega_json</code>
+    <code>e</code> <code>ou</code> <code>nao</code>
+  </p>
+
+  <div style="margin-top: 80px; text-align: center; color: #555; font-size: 14px;">
+    Documentação do PortuLua © 2026 - Walney Moreira Klein.<br>
+    Criado com base no VisuAlg e na paixão por linguagens de programação.
+  </div>
+</div>
+
+</body>
+</html>

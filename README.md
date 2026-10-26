@@ -15,7 +15,7 @@ Bem-vindo ao **PortuLua**, uma IDE (Ambiente de Desenvolvimento Integrado) compl
 Você não precisa instalar nada. Acesse a IDE e o Manual diretamente pelo GitHub Pages:
 
 *   💻 **[Abrir o PortuLua IDE](https://walneynf.github.io/portulua/)**
-*   📘 **[Ler o Manual de Referência](https://walneynf.github.io/portulua/manual.html)**
+*   📘 **[Ler o Manual de Referência](https://walneynf.github.io/portulua/manual_portulua.html)**
 
 ---
 
